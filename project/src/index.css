@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-cursor {
+  cursor: none;
+}
+
+.custom-cursor a, 
+.custom-cursor button {
+  cursor: none;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-animate {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Holographic Text Effect */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animated Border */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #60a5fa, #a78bfa, #60a5fa) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: border-animation 4s linear infinite;
+}
+
+@keyframes border-animation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 red;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 green;
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(44px, 9999px, 56px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 33px, 0);
+  }
+  10% {
+    clip: rect(23px, 9999px, 78px, 0);
+  }
+  15% {
+    clip: rect(15px, 9999px, 34px, 0);
+  }
+  20% {
+    clip: rect(67px, 9999px, 89px, 0);
+  }
+  25% {
+    clip: rect(45px, 9999px, 56px, 0);
+  }
+  30% {
+    clip: rect(89px, 9999px, 99px, 0);
+  }
+  35% {
+    clip: rect(12px, 9999px, 78px, 0);
+  }
+  40% {
+    clip: rect(34px, 9999px, 45px, 0);
+  }
+  45% {
+    clip: rect(56px, 9999px, 67px, 0);
+  }
+  50% {
+    clip: rect(78px, 9999px, 89px, 0);
+  }
+  55% {
+    clip: rect(90px, 9999px, 99px, 0);
+  }
+  60% {
+    clip: rect(1px, 9999px, 12px, 0);
+  }
+  65% {
+    clip: rect(23px, 9999px, 34px, 0);
+  }
+  70% {
+    clip: rect(45px, 9999px, 56px, 0);
+  }
+  75% {
+    clip: rect(67px, 9999px, 78px, 0);
+  }
+  80% {
+    clip: rect(89px, 9999px, 99px, 0);
+  }
+  85% {
+    clip: rect(1px, 9999px, 12px, 0);
+  }
+  90% {
+    clip: rect(23px, 9999px, 34px, 0);
+  }
+  95% {
+    clip: rect(45px, 9999px, 56px, 0);
+  }
+  100% {
+    clip: rect(67px, 9999px, 78px, 0);
+  }
+}
